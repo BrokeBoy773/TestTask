@@ -4,7 +4,7 @@ import { BookList } from '../BookList/BookList';
 import { SquareButton } from '../SquareButton/SquareButton';
 import { BookService } from '../BookService/BookService';
 
-export const BookBox = ({bookList, fetchBookList}) => {
+export const BookBox = ({ bookList, fetchBookList }) => {
     const [searchString, setSearchString] = useState('');
     const [title, setTitle] = useState('');
 
@@ -19,31 +19,35 @@ export const BookBox = ({bookList, fetchBookList}) => {
         setTitle('');
     };
 
-  return (
-    <div className={Classes.container}>
-        <input 
-            value={searchString}
-            onChange={x => setSearchString(x.target.value)}
-            type='text'
-            placeholder='Найти книгу'
-        />
-        
-        <SquareButton onClick={handleSearchBook}>
-            Искать
-        </SquareButton>
-        
-        <input 
-            value={title}
-            onChange={x => setTitle(x.target.value)}
-            type='text'
-            placeholder='Добавить книгу'
-        />
-        
-        <SquareButton onClick={handleAddBook}>
-            Добавить
-        </SquareButton>
+    return (
+        <div className={Classes.container}>
+            <div className={Classes.input}>
+                <input
+                    value={searchString}
+                    onChange={x => setSearchString(x.target.value)}
+                    type='text'
+                    placeholder='Найти книгу'
+                />
 
-        <BookList bookList={bookList} fetchBookList={fetchBookList} />
-    </div>
-  )
+                <SquareButton onClick={handleSearchBook}>
+                    Искать
+                </SquareButton>
+            </div>
+
+            <div className={Classes.input}>
+                <input
+                    value={title}
+                    onChange={x => setTitle(x.target.value)}
+                    type='text'
+                    placeholder='Добавить книгу'
+                />
+
+                <SquareButton onClick={handleAddBook}>
+                    Добавить
+                </SquareButton>
+            </div>
+
+            <BookList bookList={bookList} fetchBookList={fetchBookList} />
+        </div>
+    )
 }

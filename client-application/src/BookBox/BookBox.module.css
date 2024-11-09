@@ -10,3 +10,13 @@
 
     border-radius: 5px;
 }
+
+.input {
+    display: flex;
+    justify-content: space-between;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin-bottom: 20px;
+}
